@@ -10,8 +10,7 @@ import math
 
 def Dij(grid,start,target):
     """
-    Practice for coding Dijkstra's algorithm to prepare for doing the actual one.
-    Returns the shortest path from the start node to the target node and its distance.
+    Returns the shortest path from the start node to the target node and its distance using Dijkstra's Algorithm.
 
     Param Grid: the graph or grid that you are using for the algorithm
     Precond: Grid is a dict of nodes with neighbors

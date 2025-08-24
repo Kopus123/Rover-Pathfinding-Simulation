@@ -76,7 +76,6 @@ def main3():
     '''
     Able to run multiple rover simulations concurrently.
     It's recommended not to run more processes than the amount of cores on your CPU.
-    Somehow is slower than main2() so ts is useless ig.
     '''
     sizes = [20,20,20,20,20,20,20,20,20,20]
 

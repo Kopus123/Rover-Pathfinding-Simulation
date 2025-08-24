@@ -153,14 +153,14 @@ def DijFormatter(grid):
         assert isinstance(key,tuple) and isinstance(val,str), "the values in grid are not strings (from grid)"
         assert val in deflist, "the strings in grid are not in deflist (invalid terrain types) (from grid)"
     output = {}
-    save = []
-    for s in grid:
-        save.append(s)
     for tup,stri in grid.items():
+        #assign all the proper values to the copied keys in output
         output[tup] = stri
     for tp in output:
+        #create an empty dictionary for the bordering tiles that will be added
         output[tp] = {}
         for tpl in borderlist:
             if tupleAdder(tp,tpl) in grid:
-               output[tp][tupleAdder(tp,tpl)] = defdict[grid[tupleAdder(tp,tpl)]]
+                #add the bordering tile to the dictionary only if it is a valid tile in the grid
+                output[tp][tupleAdder(tp,tpl)] = defdict[grid[tupleAdder(tp,tpl)]]
     return output

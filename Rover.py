@@ -144,12 +144,14 @@ class Rover():
             self.progress = self.progneed - getDistance(self.position,self.targettile)
             #if the rover has reached the next tile in the sequence
             if getDistance(self.position,self.nexttile) < .001: #precision of up to .001 tile guaranteed basically
+                #when the rover gets close enough to the nexttile, then move the tiles up in the sequence
                 self.currenttile = self.nexttile
                 if len(self.path) > 0:
                     self.nexttile = self.path.pop(0)
             if self.nexttile not in self.grid or self.currenttile not in self.grid or (np.trunc(self.position[0]),np.trunc(self.position[1])) not in self.grid:
+                #if the rover goes off course, stop the simulation and raise an error
                 raise Exception("Where are you going?")
-            if self.currenttile == self.targettile:
+            if self.currenttile == self.targettile: #if the rover has arrived at its destination, then stop the simulation
                 self.velocity = [0,0]
                 self.moving = False
                 self.progress = self.progneed
